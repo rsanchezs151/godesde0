@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func MiNombreLento(nombre string) {
+func MiNombreLento(nombre string, canal1 chan bool) {
 
 	letras := strings.Split(nombre, "")
 
@@ -14,5 +14,7 @@ func MiNombreLento(nombre string) {
 		time.Sleep(1000 * time.Millisecond)
 		fmt.Println(letra)
 	}
+
+	canal1 <- true
 
 }

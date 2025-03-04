@@ -1,5 +1,15 @@
 package main
 
+import (
+	//"github.com/rsanchezs151/godesde0/users"
+	//e "github.com/rsanchezs151/godesde0/defer_panic"
+	//"fmt"
+
+	//e "github.com/rsanchezs151/godesde0/goroutines"
+	//e "github.com/rsanchezs151/godesde0/webserver"
+	e "github.com/rsanchezs151/godesde0/middelware"
+)
+
 func main() {
 	// estado, texto := variables.ConviertoaTexto(65465)
 
@@ -13,11 +23,13 @@ func main() {
 
 			e.VemosDefer()
 			e.EjemploPanic()
-
-		go e.MiNombreLento("Roberto")
+			canal1 := make(chan bool)
+		go e.MiNombreLento("Roberto", canal1)
 		fmt.Println("Estoy aqui")
-		var x string
+		defer func() {
+			<-canal1
+		}()
 
-		fmt.Scanln(&x)
 	*/
+	e.MiMiddelware()
 }
